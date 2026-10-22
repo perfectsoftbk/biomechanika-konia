@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomia, Biomechanika i Technika Jazdy Konnej</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eqGreen: {
+                            50: '#f2f7f4',
+                            100: '#e1ede6',
+                            700: '#28543e',
+                            800: '#1b3b2b',
+                            900: '#11261b',
+                        },
+                        eqLeather: {
+                            100: '#f7f2ec',
+                            500: '#ab723a',
+                            700: '#8b5a2b',
+                            800: '#69421e',
+                            900: '#4a2d12',
+                        },
+                        eqGold: {
+                            400: '#e5b839',
+                            500: '#c59b27',
+                            600: '#9e7919',
+                        },
+                        eqBeige: '#fdfbf7',
+                        eqDark: '#1c1917'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbf7;
+            color: #1c1917;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1ebd9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8b5a2b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1b3b2b;
+        }
+        
+        /* Interactive SVG Hotspots */
+        .svg-hotspot {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .svg-hotspot:hover {
+            filter: drop-shadow(0px 0px 8px rgba(197, 155, 39, 0.9));
+            stroke-width: 3px;
+        }
+        
+        /* Pulse Animation */
+        @keyframes customPulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+        .pulse-active {
+            animation: customPulse 1.5s infinite ease-in-out;
+        }
+
+        /* Glassmorphism cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(139, 90, 43, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-eqGold-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-eqGreen-900 text-eqGold-400 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-eqGold-500/30">
+        <i class="fa-solid font-bold fa-horse-head mr-2"></i> Portal Edukacyjny Biomechaniki i Techniki Jeździeckiej — Kompendium Wiedzy Anatomicznej
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 bg-eqGreen-900/95 backdrop-blur-md text-white shadow-xl border-b border-eqGold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-full bg-eqGold-500 flex items-center justify-center text-eqGreen-900 text-xl font-bold shadow-lg transition transform group-hover:scale-105">
+                        <i class="fa-solid fa-horse"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-eqGold-400 transition">EQUI-BIOMECHANIKA</span>
+                        <span class="block text-xs text-eqGold-400 font-light tracking-widest uppercase">Anatomia & Technika</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 text-sm font-medium">
+                    <a href="#anatomia" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">1. Anatomia</a>
+                    <a href="#chody" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">2. Chody</a>
+                    <a href="#rownowaga" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">3. Równowaga</a>
+                    <a href="#wodze-dosiad" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">4. Pomoce</a>
+                    <a href="#rozgrzewka" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">5. Trening</a>
+                    <a href="#komunikacja" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">6. Komunikacja</a>
+                    <a href="#bezpieczenstwo" class="px-3 py-2 rounded-lg hover:bg-eqGreen-800 hover:text-eqGold-400 transition">7. Bezpieczeństwo</a>
+                </nav>
+
+                <!-- Quick Action Buttons -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="#test-wiedzy" class="bg-eqGold-500 hover:bg-eqGold-600 text-eqGreen-900 font-bold px-4 py-2.5 rounded-lg text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Test Wiedzy</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-eqGold-400 hover:text-white hover:bg-eqGreen-800 focus:outline-none" aria-label="Otwórz menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-eqGreen-900 border-b border-eqGold-500/30 px-4 pt-2 pb-6 space-y-2">
+            <a href="#anatomia" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">1. Anatomia i Biomechanika</a>
+            <a href="#chody" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">2. Chody i Rytm Ruchu</a>
+            <a href="#rownowaga" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">3. Równowaga i Balans</a>
+            <a href="#wodze-dosiad" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">4. Działanie Wodzy i Dosiadu</a>
+            <a href="#rozgrzewka" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">5. Rozgrzewka i Rozciąganie</a>
+            <a href="#komunikacja" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">6. Komunikacja i Behawior</a>
+            <a href="#bezpieczenstwo" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-eqGreen-800 hover:text-eqGold-400">7. Bezpieczeństwo i Sprzęt</a>
+            <a href="#test-wiedzy" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-bold text-eqGreen-900 bg-eqGold-500 text-center mt-3">Rozpocznij Test Wiedzy</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-b from-eqGreen-900 via-eqGreen-800 to-eqGreen-900 text-white py-16 lg:py-24 overflow-hidden">
+        <!-- Decorative Vector Overlay -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-eqGold-500/20 border border-eqGold-400/40 text-eqGold-400 text-xs sm:text-sm px-3 py-1.5 rounded-full font-semibold">
+                        <i class="fa-solid fa-award"></i>
+                        <span>Kompleksowy Przewodnik Jeździecki & Biomechaniczny</span>
+                    </div>
+                    
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                        Anatomia, Biomechanika <br class="hidden sm:inline">
+                        <span class="text-eqGold-400 italic font-normal">& Technika Jazdy Konnej</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-200 max-w-2xl leading-relaxed">
+                        Poznaj sekret harmonijnej współpracy z koniem. Od precyzyjnej biomechaniki kręgosłupa i aparatów zatrzaskowych, po zaawansowaną optymalizację dosiadu, impuls zadu oraz bezpieczną komunikację.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#anatomia" class="bg-eqGold-500 hover:bg-eqGold-600 text-eqGreen-900 font-bold px-6 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex items-center space-x-2">
+                            <span>Eksploruj Schemat Anatomii</span>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="#chody" class="bg-eqGreen-800 hover:bg-eqGreen-700 text-white font-semibold px-6 py-3.5 rounded-xl border border-eqGold-500/40 transition flex items-center space-x-2">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Symulator Chodów</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Illustration Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative bg-eqGreen-800/80 rounded-2xl p-6 border border-eqGold-500/30 shadow-2xl backdrop-blur-md">
+                        <div class="text-center pb-4 border-b border-eqGold-500/20">
+                            <span class="text-xs font-bold text-eqGold-400 tracking-widest uppercase">Zasada Biomechaniczna #1</span>
+                            <h3 class="font-serif text-xl font-bold text-white mt-1">Koncept Łuku i Cięciwy (Bow & String)</h3>
+                        </div>
+                        
+                        <!-- Hero SVG Graphic -->
+                        <div class="py-6 flex justify-center">
+                            <svg viewBox="0 0 500 250" class="w-full h-auto max-w-md drop-shadow-md">
+                                <!-- Horse Spine Line (Bow) -->
+                                <path d="M 100 130 Q 250 80 400 120" stroke="#e5b839" stroke-width="5" fill="none" stroke-dasharray="6,3" />
+                                
+                                <!-- Abdominal Line (String) -->
+                                <path d="M 120 170 Q 250 200 380 160" stroke="#4ade80" stroke-width="4" fill="none" />
+                                
+                                <!-- Tension Arrows -->
+                                <line x1="250" y1="185" x2="250" y2="105" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow)" />
+                                
+                                <!-- Skeleton Outline Silhouette -->
+                                <path d="M 70 160 Q 90 90 140 70 Q 180 110 240 115 Q 330 115 390 125 Q 430 130 450 170" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" />
+                                
+                                <circle cx="250" cy="98" r="8" fill="#e5b839" />
+                                <circle cx="250" cy="185" r="8" fill="#4ade80" />
+
+                                <text x="250" y="75" fill="#e5b839" text-anchor="middle" font-size="12" font-weight="bold">Kręgosłup i Więzadła (Łuk)</text>
+                                <text x="250" y="215" fill="#4ade80" text-anchor="middle" font-size="12" font-weight="bold">Mięśnie Brzucha (Cięciwa)</text>
+                            </svg>
+                        </div>
+
+                        <p class="text-xs text-gray-300 text-center italic">
+                            Napięcie mięśni brzucha (cięciwa) podnosi kręgosłup (łuk), umożliwiając bezpieczne niesienie ciężaru jeźdźca bez przeciążania odcinka lędźwiowego.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: BUDOWA CIAŁA KONIA (ANATOMIA I BIOMECHANIKA) -->
+    <section id="anatomia" class="py-20 bg-eqBeige relative border-b border-eqLeather-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Title Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqLeather-700 font-bold text-xs tracking-widest uppercase bg-eqLeather-100 px-3 py-1 rounded-full border border-eqLeather-500/20">
+                    Moduł 1 — Biomechanika Układu Ruchu
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-eqGreen-900 mt-3">
+                    Budowa Ciała Konia
+                </h2>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Zrozumienie aparatu mięśniowo-szkieletowego to podstawa prawidłowej pracy z koniem. Kliknij na poszczególne elementy poniższego schematu, aby poznać ich funkcję.
+                </p>
+            </div>
+
+            <!-- Interactive Anatomy Component Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- SVG Interactive Horse Visualizer (Left Column 7 cols) -->
+                <div class="lg:col-span-7 bg-white rounded-2xl p-6 shadow-xl border border-eqLeather-500/20 relative">
+                    
+                    <!-- Controls Bar -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-gray-100">
+                        <span class="text-xs font-bold text-eqGreen-900 uppercase tracking-wider">Warstwa Widoku:</span>
+                        <div class="flex space-x-1 sm:space-x-2" id="anatomy-layer-filters">
+                            <button data-layer="all" class="layer-btn active px-3 py-1.5 text-xs rounded-lg font-semibold bg-eqGreen-900 text-white transition">Wszystko</button>
+                            <button data-layer="spine" class="layer-btn px-3 py-1.5 text-xs rounded-lg font-semibold bg-gray-100 text-gray-700 hover:bg-eqLeather-100 transition">Kręgosłup</button>
+                            <button data-layer="joints" class="layer-btn px-3 py-1.5 text-xs rounded-lg font-semibold bg-gray-100 text-gray-700 hover:bg-eqLeather-100 transition">Stawy</button>
+                            <button data-layer="muscles" class="layer-btn px-3 py-1.5 text-xs rounded-lg font-semibold bg-gray-100 text-gray-700 hover:bg-eqLeather-100 transition">Mięśnie</button>
+                        </div>
+                    </div>
+
+                    <!-- SVG Canvas -->
+                    <div class="relative w-full overflow-hidden flex justify-center py-4 bg-gradient-to-b from-gray-50 to-white rounded-xl border border-gray-100">
+                        <svg id="horse-anatomy-svg" viewBox="0 0 800 550" class="w-full h-auto max-w-2xl select-none">
+                            <defs>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="4" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- Horse Silhouette Background -->
+                            <path d="M 120 420 L 140 260 L 155 180 Q 180 120 220 80 Q 250 50 280 60 Q 300 75 280 120 L 260 170 Q 320 160 420 160 Q 520 160 580 180 Q 640 200 660 280 L 680 420 L 640 420 L 620 310 Q 580 290 560 330 L 540 420 L 510 420 L 530 310 Q 420 300 280 300 L 260 420 L 220 420 L 240 280 Q 190 280 170 330 L 150 420 Z" 
+                                  fill="#f4efe6" stroke="#d4c5b3" stroke-width="2" stroke-linejoin="round" />
+
+                            <!-- LAYER 1: SPINE (KRĘGOSŁUP) -->
+                            <g id="layer-spine" class="anatomy-layer">
+                                <!-- Cervical Spine (Szyjny - C1-C7) -->
+                                <path id="spine-cervical" class="svg-hotspot" data-title="Odcinek Szyjny (C1-C7)" data-desc="7 kręgów szyjnych o bardzo dużej ruchomości. Tworzą elastyczną dźwignię szyi, wspieraną przez silne więzadło karkowe (Ligamentum nuchae), sprzyjającą utrzymaniu równowagi." stroke="#e5b839" stroke-width="8" fill="none" stroke-linecap="round" d="M 270 75 Q 230 110 210 180 L 230 210" />
+                                
+                                <!-- Thoracic Spine (Piersiowy - T1-T18) -->
+                                <path id="spine-thoracic" class="svg-hotspot" data-title="Odcinek Piersiowy (T1-T18)" data-desc="18 kręgów piersiowych łączących się z żebrami. Wyrostki kolczyste tworzą kłąb. Służy jako główny punkt podparcia siodła. Zmiany wyciągnięcia szyi modyfikują jego napięcie." stroke="#c59b27" stroke-width="9" fill="none" stroke-linecap="round" d="M 230 210 Q 340 185 430 190" />
+                                
+                                <!-- Lumbar Spine (Lędźwiowy - L1-L6) -->
+                                <path id="spine-lumbar" class="svg-hotspot" data-title="Odcinek Lędźwiowy (L1-L6)" data-desc="6 kręgów lędźwiowych. Strefa krytyczna dla przenoszenia siły napędowej z zadu na przód. Bardzo podatna na przeciążenia przy braku aktywnego brzucha jeźdźca i konia." stroke="#a37e1b" stroke-width="9" fill="none" stroke-linecap="round" d="M 430 190 L 510 195" />
+                                
+                                <!-- Sacral & Caudal Spine (Krzyżowy i Ogonowy) -->
+                                <path id="spine-sacral" class="svg-hotspot" data-title="Odcinek Krzyżowy i Ogonowy" data-desc="Miednica połączona ze zrośniętą kością krzyżową. Przekazuje potężną siłę odepchnięcia z kończyn tylnych bezpośrednio na kręgosłup." stroke="#856411" stroke-width="8" fill="none" stroke-linecap="round" d="M 510 195 L 590 215 L 640 250" />
+                            </g>
+
+                            <!-- LAYER 2: JOINTS (STAWY) -->
+                            <g id="layer-joints" class="anatomy-layer">
+                                <!-- Hock Joint (Staw Skokowy) -->
+                                <circle id="joint-hock" class="svg-hotspot" data-title="Staw Skokowy (Hock Joint)" data-desc="Kluczowy staw amortyzujący i generujący impuls. Składa się z kilku pięter. Wyposażony w mechanizm zatrzaskowy pozwalający koniowi odpoczywać na stojąco." cx="575" cy="350" r="12" fill="#ef4444" opacity="0.85" />
+                                
+                                <!-- Stifle Joint (Staw Kolanowy) -->
+                                <circle id="joint-stifle" class="svg-hotspot" data-title="Staw Kolanowy (Stifle Joint)" data-desc="Odpowiednik ludzkiego kolana z rzepką. Posiada mechanizm zablokowania rzepki na bloczku kości udowej (Stay Apparatus), oszczędzający energię mięśni." cx="545" cy="285" r="12" fill="#ef4444" opacity="0.85" />
+                                
+                                <!-- Carpus / Knee (Staw Nadgarstkowy) -->
+                                <circle id="joint-carpus" class="svg-hotspot" data-title="Staw Nadgarstkowy (Carpus)" data-desc="Złożony staw przedniej kończyny przenoszący ogromne obciążenia lądowania. Zbudowany z dwóch rzędów kości nadgarstka." cx="240" cy="320" r="11" fill="#ef4444" opacity="0.85" />
+                                
+                                <!-- Fetlock Joint (Staw Pęcinowy) -->
+                                <circle id="joint-fetlock-front" class="svg-hotspot" data-title="Staw Pęcinowy (Fetlock Joint)" data-desc="Działa jak sprężyna pneumatyczna. Ścięgna zginaczy i więzadło zawieszkowe absorbują wstrząsy przy każdym uderzeniu kopyta o podłoże." cx="240" cy="400" r="10" fill="#dc2626" opacity="0.85" />
+                                <circle id="joint-fetlock-back" class="svg-hotspot" data-title="Staw Pęcinowy Tylny" data-desc="Równie istotny w absorpcji energii lądowania i odbicia. Kąt pęciny decyduje o elastyczności chodu." cx="575" cy="410" r="10" fill="#dc2626" opacity="0.85" />
+                            </g>
+
+                            <!-- LAYER 3: MUSCLES (MIĘŚNIE) -->
+                            <g id="layer-muscles" class="anatomy-layer">
+                                <!-- Hindquarter Muscles (Mięśnie Zadu) -->
+                                <path id="muscle-gluteal" class="svg-hotspot" data-title="Mięśnie Zadu (Pośladkowe i Dwugłowe)" data-desc="Główny motor napędowy konia (Engine Room). Generują siłę odbicia, pozwalając na podstawienie zadu pod kłodę i unoszenie przodu." fill="#2563eb" opacity="0.4" stroke="#1d4ed8" stroke-width="2" d="M 520 200 Q 610 210 630 280 Q 570 320 520 270 Z" />
+                                
+                                <!-- Latissimus Dorsi & Back (Najszerszy Grzbietu) -->
+                                <path id="muscle-back" class="svg-hotspot" data-title="Mięsień Najszerszy Grzbietu i Długi Najdłuższy" data-desc="Przenosi ruch z zadu na przód konia. Musi pracować elastycznie bez rozbudowywania sztywności; ściśnięty siodłem uniemożliwia prawidłowy chód." fill="#3b82f6" opacity="0.4" stroke="#1d4ed8" stroke-width="2" d="M 280 180 Q 420 180 510 200 Q 480 250 300 240 Z" />
+                                
+                                <!-- Neck Muscle (Brachiocephalic) -->
+                                <path id="muscle-neck" class="svg-hotspot" data-title="Mięsień Ramienno-Szyjny (Brachiocephalicus)" data-desc="Wyciąga przednią kończynę do przodu i zgina szyję. Przy prawidłowym zebraniu współpracuje z mięśniami brzucha." fill="#60a5fa" opacity="0.4" stroke="#1d4ed8" stroke-width="2" d="M 260 85 Q 210 130 220 210 Q 250 200 280 130 Z" />
+                                
+                                <!-- Abdominal Muscles (Mięśnie Brzucha) -->
+                                <path id="muscle-abdominals" class="svg-hotspot" data-title="Mięśnie Brzucha (Rectus Abdominis)" data-desc="Kluczowy element 'Cięciwy'. Skurcz mięśni brzucha podnosi grzbiet, podwija miednicę i umożliwia głębokie podstawienie tylnych nóg." fill="#10b981" opacity="0.5" stroke="#059669" stroke-width="2" d="M 280 260 Q 420 280 500 260 Q 470 320 300 310 Z" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="mt-3 text-center text-xs text-gray-500">
+                        <i class="fa-solid fa-hand-pointer mr-1 text-eqGold-500"></i> Kliknij wybrany kolorowy punkt na schemacie, aby wyświetlić opis biomechaniczny.
+                    </div>
+                </div>
+
+                <!-- Anatomy Interactive Detail Card (Right Column 5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Dynamic Info Panel -->
+                    <div id="anatomy-detail-card" class="bg-eqGreen-900 text-white rounded-2xl p-6 shadow-xl border border-eqGold-500/30 transition-all duration-300">
+                        <div class="flex items-center space-x-3 pb-3 border-b border-eqGold-500/30">
+                            <div class="w-10 h-10 rounded-lg bg-eqGold-500/20 flex items-center justify-center text-eqGold-400 text-lg">
+                                <i id="detail-icon" class="fa-solid fa-bone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-eqGold-400 font-semibold uppercase tracking-wider">Szczegóły Biomechaniczne</span>
+                                <h3 id="detail-title" class="font-serif text-xl font-bold text-white">Odcinek Szyjny (C1-C7)</h3>
+                            </div>
+                        </div>
+
+                        <p id="detail-desc" class="text-sm text-gray-200 mt-4 leading-relaxed">
+                            Odcinek szyjny konia składa się z 7 kręgów o dużej elastyczności. Szyja pełni funkcję 'balansjera' konia podczas ruchu, skoków oraz zmian kierunku. Jej prawidłowe ustawienie wpływa bezpośrednio na zaangażowanie mięśni grzbietu.
+                        </p>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-eqGold-400">
+                            <span id="detail-category" class="font-bold uppercase tracking-wider">Kategoria: Kręgosłup</span>
+                            <span>Aparat Ruchu</span>
+                        </div>
+                    </div>
+
+                    <!-- Accordion for Deep Anatomical Concepts -->
+                    <div class="space-y-3">
+                        <div class="border border-eqLeather-500/20 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-header w-full px-5 py-4 text-left font-bold text-eqGreen-900 flex justify-between items-center hover:bg-eqBeige transition">
+                                <span><i class="fa-solid fa-link text-eqGold-500 mr-2"></i> Mechanizm Zatrzaskowy (Stay Apparatus)</span>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 text-xs"></i>
+                            </button>
+                            <div class="accordion-content hidden px-5 py-4 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed bg-gray-50/50">
+                                Unikalny system więzadeł i ścięgien w kończynach konia, który pozwala zablokować stawy (szczególnie rzepkę w stawie kolanowym i staw skokowy) w pozycji wyprostowanej. Dzięki temu koń może spać na stojąco bez nakładu energii mięśniowej.
+                            </div>
+                        </div>
+
+                        <div class="border border-eqLeather-500/20 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="accordion-header w-full px-5 py-4 text-left font-bold text-eqGreen-900 flex justify-between items-center hover:bg-eqBeige transition">
+                                <span><i class="fa-solid fa-shield-halved text-eqGold-500 mr-2"></i> System Amortyzacji Wstrząsów</span>
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300 text-xs"></i>
+                            </button>
+                            <div class="accordion-content hidden px-5 py-4 text-xs sm:text-sm text-gray-600 border-t border-gray-100 leading-relaxed bg-gray-50/50">
+                                Koń nie posiada obojczyka – jego cała obręcz barkowa zawieszona jest w mięśniach (Sling System). Brak połączenia kostnego z klatką piersiową w połączeniu z elastyczną puszką kopytową i więzadłem zawieszkowym pęciny chroni stawy przed niszczącą siłą uderzenia o ziemię.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: CHODY KONIA (RYTM I BIOMECHANIKA RUCHU) -->
+    <section id="chody" class="py-20 bg-eqGreen-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqGold-400 font-bold text-xs tracking-widest uppercase bg-eqGreen-800 px-3 py-1 rounded-full border border-eqGold-500/30">
+                    Moduł 2 — Dynamika Ruchu
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3">
+                    Chody Konia i Rytm
+                </h2>
+                <p class="text-gray-300 mt-4 text-base sm:text-lg">
+                    Interaktywna analiza biomechaniczna sekwencji stawiania kopyt, taktów oraz fazy zawieszenia w stępie, kłusie i galopie.
+                </p>
+            </div>
+
+            <!-- Gait Selection Switcher -->
+            <div class="flex justify-center mb-10">
+                <div class="bg-eqGreen-800 p-1.5 rounded-2xl border border-eqGold-500/30 inline-flex space-x-2">
+                    <button id="btn-step" class="gait-tab-btn active px-5 py-2.5 rounded-xl font-bold text-sm transition bg-eqGold-500 text-eqGreen-900 shadow-md">
+                        Stęp (4-takt)
+                    </button>
+                    <button id="btn-klus" class="gait-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm text-gray-300 hover:text-white transition">
+                        Kłus (2-takt)
+                    </button>
+                    <button id="btn-galop" class="gait-tab-btn px-5 py-2.5 rounded-xl font-bold text-sm text-gray-300 hover:text-white transition">
+                        Galop (3-takt)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gait Simulator Display Box -->
+            <div class="bg-eqGreen-800/80 rounded-2xl p-6 sm:p-10 border border-eqGold-500/30 shadow-2xl backdrop-blur-md">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Gait Visual Track / Hoof Simulator (Left 7 cols) -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Top status bar -->
+                        <div class="flex items-center justify-between bg-eqGreen-900/80 p-4 rounded-xl border border-eqGold-500/20">
+                            <div>
+                                <span id="gait-name-display" class="font-serif text-2xl font-bold text-eqGold-400">Stęp (Walk)</span>
+                                <span id="gait-takt-badge" class="block text-xs text-gray-300 font-mono mt-0.5">Takt: 4-taktowy symetryczny | Brak fazy lotu</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button id="gait-play-btn" class="w-12 h-12 rounded-full bg-eqGold-500 hover:bg-eqGold-600 text-eqGreen-900 font-bold flex items-center justify-center transition shadow-lg">
+                                    <i class="fa-solid fa-play text-lg"></i>
+                                </button>
+                                <button id="gait-sound-btn" class="w-10 h-10 rounded-full bg-eqGreen-700 hover:bg-eqGreen-600 text-eqGold-400 flex items-center justify-center transition border border-eqGold-500/30" title="Włącz/Wyłącz Dźwięk Taktu">
+                                    <i class="fa-solid fa-volume-high text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hoof Footprint Visualizer Area -->
+                        <div class="bg-eqGreen-950 rounded-xl p-6 border border-eqGold-500/20 relative min-h-[220px] flex flex-col justify-center">
+                            <!-- Track Track Lines -->
+                            <div class="text-xs font-mono text-gray-500 mb-2 flex justify-between px-2">
+                                <span>LEWA STRONA</span>
+                                <span>TOR RUCHU KOPYT</span>
+                                <span>PRAWA STRONA</span>
+                            </div>
+
+                            <div class="grid grid-cols-4 gap-4 text-center my-4">
+                                <!-- Left Hind -->
+                                <div id="hoof-lh" class="hoof-box p-4 rounded-xl border border-gray-700 bg-eqGreen-900 transition-all duration-200">
+                                    <i class="fa-solid fa-shoe-prints text-2xl text-gray-600 block transform -rotate-90 mb-1"></i>
+                                    <span class="text-xs font-bold text-gray-300 block">Tylna Lewa</span>
+                                    <span class="step-num text-xs font-mono text-eqGold-400 mt-1 block">Takt 1</span>
+                                </div>
+                                <!-- Left Front -->
+                                <div id="hoof-lf" class="hoof-box p-4 rounded-xl border border-gray-700 bg-eqGreen-900 transition-all duration-200">
+                                    <i class="fa-solid fa-shoe-prints text-2xl text-gray-600 block transform -rotate-90 mb-1"></i>
+                                    <span class="text-xs font-bold text-gray-300 block">Przednia Lewa</span>
+                                    <span class="step-num text-xs font-mono text-eqGold-400 mt-1 block">Takt 2</span>
+                                </div>
+                                <!-- Right Hind -->
+                                <div id="hoof-rh" class="hoof-box p-4 rounded-xl border border-gray-700 bg-eqGreen-900 transition-all duration-200">
+                                    <i class="fa-solid fa-shoe-prints text-2xl text-gray-600 block transform -rotate-90 mb-1"></i>
+                                    <span class="text-xs font-bold text-gray-300 block">Tylna Prawa</span>
+                                    <span class="step-num text-xs font-mono text-eqGold-400 mt-1 block">Takt 3</span>
+                                </div>
+                                <!-- Right Front -->
+                                <div id="hoof-rf" class="hoof-box p-4 rounded-xl border border-gray-700 bg-eqGreen-900 transition-all duration-200">
+                                    <i class="fa-solid fa-shoe-prints text-2xl text-gray-600 block transform -rotate-90 mb-1"></i>
+                                    <span class="text-xs font-bold text-gray-300 block">Przednia Prawa</span>
+                                    <span class="step-num text-xs font-mono text-eqGold-400 mt-1 block">Takt 4</span>
+                                </div>
+                            </div>
+
+                            <!-- Flight Phase Indicator -->
+                            <div id="flight-phase-indicator" class="mt-2 text-center py-1.5 rounded-lg bg-gray-900/60 border border-gray-800 text-xs font-mono text-gray-400 transition">
+                                Faza Podparcia (Brak Fazy Lotu w Stępie)
+                            </div>
+                        </div>
+
+                        <!-- Tempo Control Slider -->
+                        <div class="flex items-center space-x-4 bg-eqGreen-900/60 p-3 rounded-xl border border-eqGold-500/20">
+                            <span class="text-xs font-bold text-eqGold-400 uppercase">Tempo:</span>
+                            <input id="gait-speed-slider" type="range" min="40" max="140" value="70" class="w-full accent-eqGold-500 cursor-pointer">
+                            <span id="gait-speed-val" class="text-xs font-mono text-white w-12">70 BPM</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Gait Detailed Description (Right 5 cols) -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="bg-eqGreen-900/90 rounded-xl p-6 border border-eqGold-500/20">
+                            <h4 class="font-serif text-lg font-bold text-eqGold-400 mb-2">Opis Biomechaniczny Chodu</h4>
+                            <p id="gait-description-text" class="text-sm text-gray-200 leading-relaxed">
+                                Stęp jest chodem czterotaktowym, wolnym i symetrycznym. Sekwencja uderzeń kopyt to: tylna lewa &rarr; przednia lewa &rarr; tylna prawa &rarr; przednia prawa. W stępie nie występuje faza lotu – koń stale zachowuje kontakt z podłożem na 2 lub 3 kończynach.
+                            </p>
+
+                            <div class="mt-4 pt-4 border-t border-gray-700/60 space-y-2">
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-gray-400">Ruch Szyi:</span>
+                                    <span id="gait-neck-movement" class="font-semibold text-white">Wyraźny wahadłowy w przód i w dół</span>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-gray-400">Wymagany Dosiad:</span>
+                                    <span id="gait-seat-requirement" class="font-semibold text-white">Podążający miednicą za ruchem konia</span>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-gray-400">Praca Wodzy:</span>
+                                    <span id="gait-rein-work" class="font-semibold text-white">Miękki kontakt podążający za głową</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-eqLeather-900/40 border border-eqLeather-500/30 rounded-xl p-4 text-xs text-eqLeather-100 flex items-start space-x-3">
+                            <i class="fa-solid fa-lightbulb text-eqGold-400 text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="text-white block font-semibold mb-0.5">Wskazówka Szkoleniowa:</strong>
+                                Skracanie wodzy w stępie bez aktywacji łydki blokuje naturalny ruch szyi i prowadzi do zepsucia czystości taktu (stęp nierówny lub usztywniony).
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: RÓWNOWAGA I BALANS -->
+    <section id="rownowaga" class="py-20 bg-eqBeige relative border-b border-eqLeather-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqLeather-700 font-bold text-xs tracking-widest uppercase bg-eqLeather-100 px-3 py-1 rounded-full border border-eqLeather-500/20">
+                    Moduł 3 — Biomechanika Ciężaru
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-eqGreen-900 mt-3">
+                    Równowaga i Balans
+                </h2>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Środek ciężkości nieuzbrojonego konia leży bliżej przodu (~60/40). Celem treningu jest przesunięcie ciężaru na zad poprzez zebranie i prawidłowy dosiad.
+                </p>
+            </div>
+
+            <!-- Interactive Vector Visualizer -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-eqLeather-500/20 mb-12">
+                
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-gray-100">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-eqGreen-900">Analiza Wektorów Sił i Środka Ciężkości</h3>
+                        <p class="text-xs text-gray-500">Przełączaj stany, aby zobaczyć przesunięcie środka ciężkości (ŚC) oraz pionowej linii jeźdźca.</p>
+                    </div>
+
+                    <div class="flex space-x-2">
+                        <button id="balance-btn-natural" class="balance-state-btn active px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-eqGreen-900 text-white transition">
+                            1. Stan Naturalny (60/40)
+                        </button>
+                        <button id="balance-btn-collected" class="balance-state-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-gray-100 text-gray-700 hover:bg-eqLeather-100 transition">
+                            2. Prawidłowe Zebranie
+                        </button>
+                        <button id="balance-btn-bad" class="balance-state-btn px-4 py-2 text-xs sm:text-sm font-bold rounded-xl bg-gray-100 text-gray-700 hover:bg-eqLeather-100 transition">
+                            3. Dosiad Przesunięty (Błąd)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SVG Diagram Canvas -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-8 flex justify-center bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <svg viewBox="0 0 700 380" class="w-full h-auto max-w-xl select-none">
+                            <!-- Ground Line -->
+                            <line x1="50" y1="320" x2="650" y2="320" stroke="#a3a3a3" stroke-width="3" stroke-dasharray="8,4" />
+
+                            <!-- Horse Body Simplified Outline -->
+                            <path d="M 120 320 L 140 210 L 180 150 L 250 110 L 290 180 L 480 180 L 560 210 L 590 320 M 540 320 L 510 240 L 440 230 M 230 320 L 250 230 L 300 230" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <!-- Dynamic COG Point (Środek Ciężkości Konia) -->
+                            <circle id="cog-horse-dot" cx="320" cy="200" r="14" fill="#e5b839" stroke="#ffffff" stroke-width="3" class="transition-all duration-500" />
+                            <text id="cog-horse-label" x="320" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b3b2b" class="transition-all duration-500">ŚC Konia</text>
+
+                            <!-- Dynamic Rider Alignment Line (Ucho-Bark-Biodro-Pięta) -->
+                            <line id="rider-alignment-line" x1="380" y1="60" x2="380" y2="280" stroke="#10b981" stroke-width="3" stroke-dasharray="4,4" class="transition-all duration-500" />
+                            
+                            <!-- Rider COG Point -->
+                            <circle id="cog-rider-dot" cx="380" cy="130" r="10" fill="#2563eb" stroke="#ffffff" stroke-width="2" class="transition-all duration-500" />
+                            
+                            <!-- Weight Distribution Vectors -->
+                            <!-- Front Load Arrow -->
+                            <g id="vector-front-group" class="transition-all duration-500">
+                                <line x1="240" y1="230" x2="240" y2="300" stroke="#ef4444" stroke-width="5" marker-end="url(#arrow-red)" />
+                                <text id="front-weight-text" x="240" y="315" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">60% Masy</text>
+                            </g>
+
+                            <!-- Rear Load Arrow -->
+                            <g id="vector-rear-group" class="transition-all duration-500">
+                                <line x1="530" y1="230" x2="530" y2="280" stroke="#3b82f6" stroke-width="5" marker-end="url(#arrow-blue)" />
+                                <text id="rear-weight-text" x="530" y="315" text-anchor="middle" font-size="12" font-weight="bold" fill="#3b82f6">40% Masy</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Explanatory Details Box -->
+                    <div class="lg:col-span-4 space-y-4">
+                        <div id="balance-info-card" class="bg-eqBeige p-6 rounded-xl border border-eqLeather-500/20">
+                            <span id="balance-badge" class="text-xs font-bold text-eqGreen-900 bg-eqGold-400 px-2.5 py-1 rounded-md uppercase">Stan 1</span>
+                            <h4 id="balance-title" class="font-serif text-lg font-bold text-eqGreen-900 mt-2">Naturalna Równowaga Przednia</h4>
+                            <p id="balance-desc" class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Bez obciążenia jeźdźcem koń niesie około 60% masy na przodzie z powodu ciężaru głowy i szyi. Podstawowym celem wyszkolenia jest aktywacja tylnych nóg, aby przejęły one obciążenie przodu.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-3 p-3 rounded-lg bg-white border border-gray-100 shadow-sm">
+                                <div class="w-3 h-3 rounded-full bg-eqGold-500"></div>
+                                <span class="text-xs font-medium text-gray-700">Pionowa linia: Ucho — Bark — Biodro — Pięta</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 rounded-lg bg-white border border-gray-100 shadow-sm">
+                                <div class="w-3 h-3 rounded-full bg-blue-600"></div>
+                                <span class="text-xs font-medium text-gray-700">Ugięcie stawów zadu (Podstawienie)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: DZIAŁANIE WODZY I DOSIADU -->
+    <section id="wodze-dosiad" class="py-20 bg-eqGreen-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqGold-400 font-bold text-xs tracking-widest uppercase bg-eqGreen-800 px-3 py-1 rounded-full border border-eqGold-500/30">
+                    Moduł 4 — Pomoce Jeździeckie
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3">
+                    Działanie Wodzy i Dosiadu
+                </h2>
+                <p class="text-gray-300 mt-4 text-base sm:text-lg">
+                    Prawidłowy sygnał jeździecki to łańcuch reakcji płynący z miednicy i kości kulszowych, wzmocniony łydką i przyjęty przez miękką rękę.
+                </p>
+            </div>
+
+            <!-- Signal Flow Diagram Visual -->
+            <div class="bg-eqGreen-800/90 rounded-2xl p-6 sm:p-10 border border-eqGold-500/30 shadow-2xl mb-12">
+                <h3 class="font-serif text-xl font-bold text-eqGold-400 mb-6 text-center">Łańcuch Przekazywania Sygnału (The Aids Chain)</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                    <!-- Step 1 -->
+                    <div class="bg-eqGreen-900 p-5 rounded-xl border border-eqGold-500/20 relative group hover:border-eqGold-500 transition">
+                        <div class="w-10 h-10 rounded-full bg-eqGold-500 text-eqGreen-900 font-bold mx-auto flex items-center justify-center mb-3">1</div>
+                        <h4 class="font-bold text-white text-sm mb-1">Dosiad i Miednica</h4>
+                        <p class="text-xs text-gray-300">Kości kulszowe stabilizują środek ciężkości i nadają impuls lub przytrzymanie.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-eqGreen-900 p-5 rounded-xl border border-eqGold-500/20 relative group hover:border-eqGold-500 transition">
+                        <div class="w-10 h-10 rounded-full bg-eqGold-500 text-eqGreen-900 font-bold mx-auto flex items-center justify-center mb-3">2</div>
+                        <h4 class="font-bold text-white text-sm mb-1">Aktywizacja Łydki</h4>
+                        <p class="text-xs text-gray-300">Łydka działa przy popręgu aktywująco na tylną nogę konia po danej stronie.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-eqGreen-900 p-5 rounded-xl border border-eqGold-500/20 relative group hover:border-eqGold-500 transition">
+                        <div class="w-10 h-10 rounded-full bg-eqGold-500 text-eqGreen-900 font-bold mx-auto flex items-center justify-center mb-3">3</div>
+                        <h4 class="font-bold text-white text-sm mb-1">Falowanie Grzbietu</h4>
+                        <p class="text-xs text-gray-300">Impuls przechodzi przez uniesiony grzbiet i szyję w stronę pyska konia.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-eqGreen-900 p-5 rounded-xl border border-eqGold-500/20 relative group hover:border-eqGold-500 transition">
+                        <div class="w-10 h-10 rounded-full bg-eqGold-500 text-eqGreen-900 font-bold mx-auto flex items-center justify-center mb-3">4</div>
+                        <h4 class="font-bold text-white text-sm mb-1">Elastyczna Wodza</h4>
+                        <p class="text-xs text-gray-300">Dłoń 'zbiera' energię, oferując miękki kontakt bez ciągnięcia wstecz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Half-Halt Interactive Breakdown Box -->
+            <div class="bg-eqGreen-950 p-6 sm:p-8 rounded-2xl border border-eqGold-500/30">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-3">
+                        <span class="text-xs font-bold text-eqGold-400 uppercase tracking-widest">Kluczowa Technika</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Anatomia Półparady (Half-Halt)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Półparada to niewidoczna dla widza, chwilowa koordynacja dosiadu, łydki i wodzy. Służy do przywrócenia równowagi, zapowiedzi zmiany chodu lub elementu programu.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-eqGreen-900 p-4 rounded-xl border border-gray-800">
+                            <strong class="text-eqGold-400 block font-bold text-sm mb-1">1. Dosiad (Usztywnienie)</strong>
+                            Lekkie zamknięcie krzyża i wstrzymanie ruchu miednicy na ułamek sekundy.
+                        </div>
+                        <div class="bg-eqGreen-900 p-4 rounded-xl border border-gray-800">
+                            <strong class="text-eqGold-400 block font-bold text-sm mb-1">2. Łydka (Zamknięcie)</strong>
+                            Dociśnięcie łydek zapobiega zwolnieniu tempa i nakazuje podstawienie zadu.
+                        </div>
+                        <div class="bg-eqGreen-900 p-4 rounded-xl border border-gray-800">
+                            <strong class="text-eqGold-400 block font-bold text-sm mb-1">3. Wodza (Zwolnienie)</strong>
+                            Zamknięcie dłoni na wodzy z natychmiastowym oddaniem nacisku po reakcji konia.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: ZNACZENIE ROZGRZEWKI I ROZCIĄGANIA -->
+    <section id="rozgrzewka" class="py-20 bg-eqBeige relative border-b border-eqLeather-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqLeather-700 font-bold text-xs tracking-widest uppercase bg-eqLeather-100 px-3 py-1 rounded-full border border-eqLeather-500/20">
+                    Moduł 5 — Fizjologia Treningu
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-eqGreen-900 mt-3">
+                    Rozgrzewka i Rozciąganie
+                </h2>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Prawidłowa struktura treningu zapobiega kontuzjom ścięgien, przyspiesza produkcję mazi stawowej i usprawnia regenerację powięziową.
+                </p>
+            </div>
+
+            <!-- Training Phases Timeline Graphic -->
+            <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-eqLeather-500/20 mb-12">
+                <h3 class="font-serif text-xl font-bold text-eqGreen-900 mb-8 text-center">Fazy Prawidłowej Jednostki Treningowej</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                    <!-- Phase 1 -->
+                    <div class="border-t-4 border-eqGold-500 pt-4 bg-gray-50/50 p-4 rounded-b-xl">
+                        <span class="text-xs font-mono font-bold text-eqGold-600 block">FAZA I — 10-15 MINUT</span>
+                        <h4 class="font-serif text-lg font-bold text-eqGreen-900 mt-1">Rozgrzewka i Stęp</h4>
+                        <ul class="text-xs text-gray-600 space-y-2 mt-3">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Stęp na luźnej wodzy dla pobudzenia krążenia.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Wydzielanie mazi stawowej w stawach skokowych i kłobie.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Wzrost temperatury tkanek mięśniowych o 1.5–2°C.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="border-t-4 border-eqGreen-800 pt-4 bg-gray-50/50 p-4 rounded-b-xl">
+                        <span class="text-xs font-mono font-bold text-eqGreen-800 block">FAZA II — 25-40 MINUT</span>
+                        <h4 class="font-serif text-lg font-bold text-eqGreen-900 mt-1">Praca Właściwa</h4>
+                        <ul class="text-xs text-gray-600 space-y-2 mt-3">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Gradacja obciążeń: kłus, galop, elementy zebrania.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Częste zmiany kierunku i przejścia dla elastyczności.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Przerwy na rozluźnienie w trakcie pracy.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="border-t-4 border-eqLeather-700 pt-4 bg-gray-50/50 p-4 rounded-b-xl">
+                        <span class="text-xs font-mono font-bold text-eqLeather-700 block">FAZA III — 10-15 MINUT</span>
+                        <h4 class="font-serif text-lg font-bold text-eqGreen-900 mt-1">Cisza i Rozciąganie</h4>
+                        <ul class="text-xs text-gray-600 space-y-2 mt-3">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Stępowanie do obniżenia tętna spoczynkowego (&lt; 40-50 bpm).</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Wypłukiwanie kwasu mlekowego z włókien mięśniowych.</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-eqGreen-700 mr-2 mt-0.5"></i> Ćwiczenia marchwiowe (Carrot Stretches).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrot Stretches Interactive Card -->
+            <div class="bg-eqLeather-100/60 rounded-2xl p-6 sm:p-8 border border-eqLeather-500/20">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center md:text-left">
+                        <span class="text-xs font-bold text-eqLeather-800 uppercase tracking-widest">Regeneracja Poizometryczna</span>
+                        <h4 class="font-serif text-2xl font-bold text-eqGreen-900">Ćwiczenia Rozciągające ("Carrot Stretches")</h4>
+                        <p class="text-xs sm:text-sm text-gray-700 max-w-xl">
+                            Użycie smakołyku po jeździe pozwala w łagodny sposób rozciągnąć kręgosłup szyjny, mięśnie klatki piersiowej oraz więzadło nadkolcowe konia.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <div class="bg-white p-3 rounded-xl border border-eqLeather-500/20 text-center w-32 shadow-sm">
+                            <i class="fa-solid fa-carrot text-orange-500 text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-eqGreen-900 block">Do Słabizny</span>
+                            <span class="text-[10px] text-gray-500">Boczny zgięcie szyi</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-eqLeather-500/20 text-center w-32 shadow-sm">
+                            <i class="fa-solid fa-carrot text-orange-500 text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-eqGreen-900 block">Między Pęciny</span>
+                            <span class="text-[10px] text-gray-500">Uniesienie kłębu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: KOMUNIKACJA Z KONIEM (MOWA CIAŁA) -->
+    <section id="komunikacja" class="py-20 bg-eqGreen-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqGold-400 font-bold text-xs tracking-widest uppercase bg-eqGreen-800 px-3 py-1 rounded-full border border-eqGold-500/30">
+                    Moduł 6 — Behawior i Psychologia
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3">
+                    Komunikacja i Mowa Ciała
+                </h2>
+                <p class="text-gray-300 mt-4 text-base sm:text-lg">
+                    Interaktywny dekoder emocji konia. Przetestuj ułożenie uszu, oczu i nozdrzy, aby odczytać stan psychofizyczny zwierzęcia.
+                </p>
+            </div>
+
+            <!-- Equine Mood Decoder Box -->
+            <div class="bg-eqGreen-800/90 rounded-2xl p-6 sm:p-10 border border-eqGold-500/30 shadow-2xl">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Decoder SVG Head View (Left 6 cols) -->
+                    <div class="lg:col-span-6 bg-eqGreen-950 p-6 rounded-xl border border-eqGold-500/20 text-center relative">
+                        <span class="text-xs font-bold text-eqGold-400 block mb-4 uppercase tracking-wider">Interaktywny Model Głowy Konia</span>
+                        
+                        <div class="py-4 flex justify-center">
+                            <svg id="horse-head-svg" viewBox="0 0 300 300" class="w-64 h-64">
+                                <!-- Base Horse Head Outline -->
+                                <path d="M 90 220 Q 80 140 120 100 Q 150 80 190 120 L 220 200 Q 190 250 130 240 Z" fill="#d97706" opacity="0.8" stroke="#78350f" stroke-width="3" />
+                                
+                                <!-- Nostril -->
+                                <circle id="horse-nostril" cx="110" cy="225" r="10" fill="#451a03" class="transition-all duration-300" />
+
+                                <!-- Eye -->
+                                <circle id="horse-eye" cx="160" cy="140" r="7" fill="#1c1917" class="transition-all duration-300" />
+                                <circle id="horse-eye-white" cx="158" cy="138" r="2" fill="#ffffff" opacity="0" class="transition-all duration-300" />
+
+                                <!-- Left Ear (Dynamic Angle) -->
+                                <g id="horse-ear-left" class="transition-transform duration-500 origin-[160px_100px]">
+                                    <path d="M 150 100 Q 140 40 160 30 Q 175 40 165 100 Z" fill="#b45309" stroke="#78350f" stroke-width="2" />
+                                </g>
+
+                                <!-- Right Ear (Dynamic Angle) -->
+                                <g id="horse-ear-right" class="transition-transform duration-500 origin-[180px_110px]">
+                                    <path d="M 170 110 Q 170 50 190 40 Q 200 55 185 110 Z" fill="#d97706" stroke="#78350f" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Active Mood State Badge -->
+                        <div class="mt-2 inline-block bg-eqGold-500 text-eqGreen-900 font-bold text-sm px-4 py-1.5 rounded-full shadow-md">
+                            <span id="current-mood-name">Zrelaksowany / Przyjazny</span>
+                        </div>
+                    </div>
+
+                    <!-- Mood Selection Controls (Right 6 cols) -->
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs font-bold text-eqGold-400 uppercase tracking-widest">Wybierz Stan Emocjonalny:</span>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <button data-mood="relaxed" class="mood-btn active p-3 rounded-xl bg-eqGreen-900 border border-eqGold-500 text-left hover:bg-eqGreen-700 transition">
+                                <strong class="text-eqGold-400 block text-xs">1. Zrelaksowany</strong>
+                                <span class="text-[11px] text-gray-300">Uszy miękko w bok/przód</span>
+                            </button>
+
+                            <button data-mood="alert" class="mood-btn p-3 rounded-xl bg-eqGreen-900 border border-gray-700 text-left hover:bg-eqGreen-700 transition">
+                                <strong class="text-white block text-xs">2. Czujny / Ciekawy</strong>
+                                <span class="text-[11px] text-gray-300">Uszy sztywno w przód</span>
+                            </button>
+
+                            <button data-mood="angry" class="mood-btn p-3 rounded-xl bg-eqGreen-900 border border-gray-700 text-left hover:bg-eqGreen-700 transition">
+                                <strong class="text-white block text-xs">3. Zezłoszczony</strong>
+                                <span class="text-[11px] text-gray-300">Uszy płasko do tyłu</span>
+                            </button>
+
+                            <button data-mood="scared" class="mood-btn p-3 rounded-xl bg-eqGreen-900 border border-gray-700 text-left hover:bg-eqGreen-700 transition">
+                                <strong class="text-white block text-xs">4. Przestraszony</strong>
+                                <span class="text-[11px] text-gray-300">Szerokie oczy, nozdrza</span>
+                            </button>
+                        </div>
+
+                        <!-- Mood Explanation Box -->
+                        <div class="bg-eqGreen-900 p-5 rounded-xl border border-eqGold-500/20 text-xs sm:text-sm text-gray-200 leading-relaxed">
+                            <h5 id="mood-desc-title" class="font-bold text-eqGold-400 text-sm mb-1">Objawy Zrelaksowania:</h5>
+                            <p id="mood-desc-body">
+                                Uszy skierowane swobodnie na boki lub lekko w przód. Wzrok miękki, nozdrza rozluźnione. Koń jest gotowy do współpracy i przyjmowania sygnałów od jeźdźca.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: BEZPIECZEŃSTWO -->
+    <section id="bezpieczenstwo" class="py-20 bg-eqBeige relative border-b border-eqLeather-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eqLeather-700 font-bold text-xs tracking-widest uppercase bg-eqLeather-100 px-3 py-1 rounded-full border border-eqLeather-500/20">
+                    Moduł 7 — Zasady Bezpieczeństwa
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-eqGreen-900 mt-3">
+                    Bezpieczeństwo i Pole Widzenia
+                </h2>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">
+                    Zrozumienie pola widzenia konia (monokularnego i binokularnego) oraz stref ślepych to klucz do zapobiegania nagłym reakcjom obronnym.
+                </p>
+            </div>
+
+            <!-- Vision Field Radar SVG Map -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-eqLeather-500/20 mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 flex justify-center bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <svg viewBox="0 0 500 450" class="w-full h-auto max-w-md select-none">
+                            <!-- Horse Center Icon -->
+                            <ellipse cx="250" cy="225" rx="30" ry="60" fill="#1b3b2b" />
+                            <circle cx="250" cy="155" r="18" fill="#c59b27" />
+                            <text x="250" y="230" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">KOŃ</text>
+
+                            <!-- Binocular Vision Zone (Front 65 deg) -->
+                            <path d="M 250 155 L 170 30 A 210 210 0 0 1 330 30 Z" fill="rgba(197, 155, 39, 0.35)" stroke="#c59b27" stroke-width="2" class="svg-hotspot" data-vision="binocular" />
+                            <text x="250" y="80" text-anchor="middle" font-size="11" font-weight="bold" fill="#856411">Widzenie Dwuaoczne (3D)</text>
+
+                            <!-- Monocular Vision Left -->
+                            <path d="M 250 225 L 30 200 A 210 210 0 0 1 170 30 Z" fill="rgba(37, 99, 235, 0.2)" stroke="#2563eb" stroke-width="2" class="svg-hotspot" data-vision="monocular-left" />
+                            <!-- Monocular Vision Right -->
+                            <path d="M 250 225 L 470 200 A 210 210 0 0 0 330 30 Z" fill="rgba(37, 99, 235, 0.2)" stroke="#2563eb" stroke-width="2" class="svg-hotspot" data-vision="monocular-right" />
+                            <text x="90" y="180" text-anchor="middle" font-size="10" font-weight="bold" fill="#1d4ed8">Widzenie Jednooczne (P)</text>
+                            <text x="410" y="180" text-anchor="middle" font-size="10" font-weight="bold" fill="#1d4ed8">Widzenie Jednooczne (L)</text>
+
+                            <!-- Rear Blind Spot (Strefa Ślepa) -->
+                            <path d="M 250 225 L 190 410 A 210 210 0 0 0 310 410 Z" fill="rgba(239, 68, 68, 0.4)" stroke="#ef4444" stroke-width="2" class="svg-hotspot" data-vision="blind-rear" />
+                            <text x="250" y="370" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">STREFA ŚLEPA (ZAD)</text>
+
+                            <!-- Safe Approach Angle Arrow -->
+                            <line x1="120" y1="120" x2="210" y2="160" stroke="#10b981" stroke-width="3" marker-end="url(#arrow-green)" />
+                            <text x="110" y="105" font-size="10" font-weight="bold" fill="#059669">Bezpieczny Kąt Podchodzenia (45°)</text>
+                        </svg>
+                    </div>
+
+                    <!-- Safety Information Panel -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div id="vision-info-card" class="bg-eqBeige p-6 rounded-xl border border-eqLeather-500/20">
+                            <span id="vision-badge" class="text-xs font-bold text-white bg-red-600 px-2.5 py-1 rounded-md uppercase">Strefa Krytyczna</span>
+                            <h4 id="vision-title" class="font-serif text-lg font-bold text-eqGreen-900 mt-2">Tylna Strefa Ślepa (Behind Tail)</h4>
+                            <p id="vision-desc" class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Koń nie widzi obszaru bezpośrednio za swoim ogonem oraz tuż pod swoim nosem. Podchodzenie od tyłu bez ostrzeżenia głosowego może wywołać instynktowny kopniak obronny.
+                            </p>
+                        </div>
+
+                        <!-- Protective Gear Interactive Checklist -->
+                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-3">
+                            <h5 class="font-bold text-eqGreen-900 text-sm">Atestowany Sprzęt Ochronny Jeźdźca:</h5>
+                            
+                            <label class="flex items-center space-x-3 text-xs text-gray-700 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 accent-eqGreen-800 rounded">
+                                <span>Kask jeździecki (norma VG1 / CE EN 1384)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 text-xs text-gray-700 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 accent-eqGreen-800 rounded">
+                                <span>Kamizelka ochronna (Poziom 3 / Poduszka Airbag)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 text-xs text-gray-700 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 accent-eqGreen-800 rounded">
+                                <span>Buty jeździeckie z gładką podeszwą i obcasem</span>
+                            </label>
+                            <label class="flex items-center space-x-3 text-xs text-gray-700 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 accent-eqGreen-800 rounded">
+                                <span>Bezpieczne strzemiona z gumką lub mechanizmem wypięcia</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: INTERAKTYWNY TEST WIEDZY -->
+    <section id="test-wiedzy" class="py-20 bg-eqGreen-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <span class="text-eqGold-400 font-bold text-xs tracking-widest uppercase bg-eqGreen-800 px-3 py-1 rounded-full border border-eqGold-500/30">
+                    Sprawdź Swoją Wiedzę
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-3">
+                    Test Biomechaniki i Techniki
+                </h2>
+                <p class="text-gray-300 mt-2 text-sm">
+                    Odpowiedz na 3 pytania sprawdzające znajomość zagadnień z portalu.
+                </p>
+            </div>
+
+            <!-- Quiz Card Widget -->
+            <div id="quiz-container" class="bg-eqGreen-800 p-6 sm:p-10 rounded-2xl border border-eqGold-500/30 shadow-2xl">
+                
+                <div id="quiz-question-box">
+                    <div class="flex justify-between items-center text-xs text-eqGold-400 font-mono mb-4">
+                        <span id="quiz-progress-text">Pytanie 1 z 3</span>
+                        <span id="quiz-score-tracker">Wynik: 0 pkt</span>
+                    </div>
+
+                    <h3 id="quiz-question-title" class="font-serif text-xl font-bold text-white mb-6">
+                        Jaka jest poprawna sekwencja uderzeń kopyt w symetrycznym 4-taktowym stępie?
+                    </h3>
+
+                    <div id="quiz-options-container" class="space-y-3">
+                        <!-- Options will be dynamically rendered via JS -->
+                    </div>
+
+                    <div id="quiz-feedback" class="mt-6 p-4 rounded-xl hidden text-xs sm:text-sm font-semibold"></div>
+
+                    <div class="mt-8 flex justify-end">
+                        <button id="quiz-next-btn" class="bg-eqGold-500 hover:bg-eqGold-600 text-eqGreen-900 font-bold px-6 py-2.5 rounded-xl text-sm transition hidden">
+                            Następne Pytanie <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Completion Screen (Hidden initial) -->
+                <div id="quiz-results-box" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-eqGold-500 text-eqGreen-900 text-3xl font-bold mx-auto flex items-center justify-center">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white">Gratulacje! Ukończono Test</h3>
+                    <p id="quiz-final-score-text" class="text-lg text-eqGold-400 font-bold"></p>
+                    <p class="text-xs text-gray-300 max-w-md mx-auto">
+                        Osiągnięty wynik potwierdza Twoje zrozumienie zasad biomechaniki i anatomii konia.
+                    </p>
+                    <button id="quiz-restart-btn" class="mt-4 bg-eqGold-500 text-eqGreen-900 font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-eqGold-600 transition">
+                        Rozpocznij Test Ponownie
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="bg-eqGreen-950 text-gray-400 py-12 border-t border-eqGold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-eqGold-500 text-eqGreen-900 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-horse"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg font-bold text-white tracking-wider">EQUI-BIOMECHANIKA</span>
+                        <p class="text-xs text-gray-500">Kompendium Wiedzy Jeździeckiej i Anatomicznej</p>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-500 space-y-1">
+                    <p>© 2026 EQUI-BIOMECHANIKA. Wszelkie prawa zastrzeżone.</p>
+                    <p>Projekt opracowany z wytycznymi biomechaniki klasycznej i medycyny weterynaryjnej.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG Markers Definition for Dynamic Arrows -->
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffffff" />
+            </marker>
+            <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
+            </marker>
+            <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+            </marker>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+            </marker>
+        </defs>
+    </svg>
+
+    <!-- JAVASCRIPT INTERACTIVITY CODE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- MOBILE MENU TOGGLE --- */
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            /* --- ACCORDIONS LOGIC --- */
+            const accordions = document.querySelectorAll('.accordion-header');
+            accordions.forEach(acc => {
+                acc.addEventListener('click', () => {
+                    const content = acc.nextElementSibling;
+                    const icon = acc.querySelector('.fa-chevron-down');
+                    
+                    content.classList.toggle('hidden');
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            });
+
+            /* --- MODULE 1: ANATOMY INTERACTIVE HOTSPOTS --- */
+            const hotspots = document.querySelectorAll('.svg-hotspot');
+            const detailTitle = document.getElementById('detail-title');
+            const detailDesc = document.getElementById('detail-desc');
+            const detailCategory = document.getElementById('detail-category');
+            const detailIcon = document.getElementById('detail-icon');
+
+            hotspots.forEach(spot => {
+                spot.addEventListener('click', () => {
+                    const title = spot.getAttribute('data-title');
+                    const desc = spot.getAttribute('data-desc');
+                    const id = spot.id;
+
+                    if (detailTitle && title) detailTitle.textContent = title;
+                    if (detailDesc && desc) detailDesc.textContent = desc;
+
+                    // Icon and category styling
+                    if (id.includes('spine')) {
+                        detailCategory.textContent = "Kategoria: Kręgosłup";
+                        detailIcon.className = "fa-solid fa-bone text-eqGold-400";
+                    } else if (id.includes('joint')) {
+                        detailCategory.textContent = "Kategoria: Stawy";
+                        detailIcon.className = "fa-solid fa-circle-dot text-red-400";
+                    } else if (id.includes('muscle')) {
+                        detailCategory.textContent = "Kategoria: Mięśnie";
+                        detailIcon.className = "fa-solid fa-dumbbell text-blue-400";
+                    }
+                });
+            });
+
+            // Layer Visibility Filter
+            const layerBtns = document.querySelectorAll('.layer-btn');
+            const anatomyLayers = document.querySelectorAll('.anatomy-layer');
+
+            layerBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    layerBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-eqGreen-900', 'text-white');
+                        b.classList.add('bg-gray-100', 'text-gray-700');
+                    });
+                    btn.classList.add('active', 'bg-eqGreen-900', 'text-white');
+                    btn.classList.remove('bg-gray-100', 'text-gray-700');
+
+                    const targetLayer = btn.getAttribute('data-layer');
+
+                    anatomyLayers.forEach(layer => {
+                        if (targetLayer === 'all') {
+                            layer.style.display = 'block';
+                        } else {
+                            if (layer.id === `layer-${targetLayer}`) {
+                                layer.style.display = 'block';
+                            } else {
+                                layer.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            /* --- MODULE 2: GAIT SIMULATOR & AUDIO SYNTHESIZER --- */
+            let audioCtx = null;
+            let gaitInterval = null;
+            let isPlaying = false;
+            let soundEnabled = true;
+            let currentGait = 'step'; // 'step', 'klus', 'galop'
+            let currentStepIndex = 0;
+
+            const gaitData = {
+                step: {
+                    name: 'Stęp (Walk)',
+                    takt: 'Takt: 4-taktowy symetryczny | Brak fazy lotu',
+                    desc: 'Stęp jest chodem czterotaktowym, wolnym i symetrycznym. Sekwencja uderzeń kopyt to: tylna lewa → przednia lewa → tylna prawa → przednia prawa. W stępie brak fazy lotu.',
+                    neck: 'Wyraźny wahadłowy ruch w przód i w dół przy każdym kroku.',
+                    seat: 'Podążający miednicą za ruchem grzbietu konia.',
+                    rein: 'Miękki, podążający kontakt dłoni.',
+                    sequence: [
+                        { active: ['hoof-lh'], flight: false, stepLabel: 'Takt 1: Tylna Lewa' },
+                        { active: ['hoof-lf'], flight: false, stepLabel: 'Takt 2: Przednia Lewa' },
+                        { active: ['hoof-rh'], flight: false, stepLabel: 'Takt 3: Tylna Prawa' },
+                        { active: ['hoof-rf'], flight: false, stepLabel: 'Takt 4: Przednia Prawa' }
+                    ]
+                },
+                klus: {
+                    name: 'Kłus (Trot)',
+                    takt: 'Takt: 2-taktowy przekątny | Obecna faza lotu/zawieszenia',
+                    desc: 'Kłus jest chodem dwutaktowym symetrycznym. Nogi poruszają się w przekątnych parach (np. tylna lewa + przednia prawa). Pomiędzy uderzeniami par występuje faza lotu.',
+                    neck: 'Niewielki, stabilny ruch szyi.',
+                    seat: 'Kłus ćwiczebny (podążający) lub kłus anglezowany.',
+                    rein: 'Stały, elastyczny kontakt.',
+                    sequence: [
+                        { active: ['hoof-lh', 'hoof-rf'], flight: false, stepLabel: 'Takt 1: Lewa Tylna + Prawa Przednia' },
+                        { active: [], flight: true, stepLabel: 'FAZA LOTU / ZAWIESZENIA' },
+                        { active: ['hoof-rh', 'hoof-lf'], flight: false, stepLabel: 'Takt 2: Prawa Tylna + Lewa Przednia' },
+                        { active: [], flight: true, stepLabel: 'FAZA LOTU / ZAWIESZENIA' }
+                    ]
+                },
+                galop: {
+                    name: 'Galop (Canter - Prawa Noga)',
+                    takt: 'Takt: 3-taktowy asymetryczny | Faza lotu po 3 takcie',
+                    desc: 'Galop z prawej nogi jest chodem 3-taktowym: 1. Lewa tylna -> 2. Przekątna (prawa tylna + lewa przednia) -> 3. Prawa przednia (prowadząca) -> Faza lotu.',
+                    neck: 'Kolisty, obszerny ruch szyi przy każdym skoku.',
+                    seat: 'Głęboki dosiad podążający za falowaniem miednicy.',
+                    rein: 'Płynnie oddająca ręka w fazie uszczęśliwienia skoku.',
+                    sequence: [
+                        { active: ['hoof-lh'], flight: false, stepLabel: 'Takt 1: Lewa Tylna' },
+                        { active: ['hoof-rh', 'hoof-lf'], flight: false, stepLabel: 'Takt 2: Prawa Tylna + Lewa Przednia' },
+                        { active: ['hoof-rf'], flight: false, stepLabel: 'Takt 3: Prawa Przednia (Prowadząca)' },
+                        { active: [], flight: true, stepLabel: 'FAZA LOTU (SUSPENSION)' }
+                    ]
+                }
+            };
+
+            const playBtn = document.getElementById('gait-play-btn');
+            const soundBtn = document.getElementById('gait-sound-btn');
+            const speedSlider = document.getElementById('gait-speed-slider');
+            const speedVal = document.getElementById('gait-speed-val');
+
+            function playClickSound(freq = 400) {
+                if (!soundEnabled) return;
+                try {
+                    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.04);
+                } catch(e) {
+                    // Audio fallback silently ignored
+                }
+            }
+
+            function updateGaitUI() {
+                const data = gaitData[currentGait];
+                document.getElementById('gait-name-display').textContent = data.name;
+                document.getElementById('gait-takt-badge').textContent = data.takt;
+                document.getElementById('gait-description-text').textContent = data.desc;
+                document.getElementById('gait-neck-movement').textContent = data.neck;
+                document.getElementById('gait-seat-requirement').textContent = data.seat;
+                document.getElementById('gait-rein-work').textContent = data.rein;
+            }
+
+            function runGaitStep() {
+                const sequence = gaitData[currentGait].sequence;
+                const step = sequence[currentStepIndex];
+
+                // Clear active hooves
+                document.querySelectorAll('.hoof-box').forEach(box => {
+                    box.classList.remove('bg-eqGold-500', 'border-eqGold-400', 'scale-105');
+                    box.classList.add('bg-eqGreen-900', 'border-gray-700');
+                    const icon = box.querySelector('i');
+                    if (icon) icon.className = "fa-solid fa-shoe-prints text-2xl text-gray-600 block transform -rotate-90 mb-1";
+                });
+
+                const flightIndicator = document.getElementById('flight-phase-indicator');
+
+                if (step.flight) {
+                    if (flightIndicator) {
+                        flightIndicator.textContent = step.stepLabel;
+                        flightIndicator.className = "mt-2 text-center py-1.5 rounded-lg bg-eqGold-500/20 border border-eqGold-400 text-xs font-mono text-eqGold-400 font-bold animate-pulse";
+                    }
+                    playClickSound(800);
+                } else {
+                    if (flightIndicator) {
+                        flightIndicator.textContent = `Podparcie: ${step.stepLabel}`;
+                        flightIndicator.className = "mt-2 text-center py-1.5 rounded-lg bg-gray-900/60 border border-gray-800 text-xs font-mono text-gray-400";
+                    }
+                    step.active.forEach(hoofId => {
+                        const box = document.getElementById(hoofId);
+                        if (box) {
+                            box.classList.remove('bg-eqGreen-900', 'border-gray-700');
+                            box.classList.add('bg-eqGold-500', 'border-eqGold-400', 'scale-105');
+                            const icon = box.querySelector('i');
+                            if (icon) icon.className = "fa-solid fa-shoe-prints text-2xl text-eqGreen-900 block transform -rotate-90 mb-1";
+                        }
+                    });
+                    playClickSound(350);
+                }
+
+                currentStepIndex = (currentStepIndex + 1) % sequence.length;
+            }
+
+            function startGaitSimulation() {
+                if (isPlaying) clearInterval(gaitInterval);
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fa-solid fa-pause text-lg"></i>';
+                const speedBpm = parseInt(speedSlider.value, 10);
+                const intervalMs = (60 / speedBpm) * 500;
+                gaitInterval = setInterval(runGaitStep, intervalMs);
+            }
+
+            function stopGaitSimulation() {
+                isPlaying = false;
+                clearInterval(gaitInterval);
+                playBtn.innerHTML = '<i class="fa-solid fa-play text-lg"></i>';
+            }
+
+            if (playBtn) {
+                playBtn.addEventListener('click', () => {
+                    if (isPlaying) stopGaitSimulation();
+                    else startGaitSimulation();
+                });
+            }
+
+            if (soundBtn) {
+                soundBtn.addEventListener('click', () => {
+                    soundEnabled = !soundEnabled;
+                    soundBtn.classList.toggle('text-eqGold-400');
+                    soundBtn.classList.toggle('text-gray-500');
+                });
+            }
+
+            if (speedSlider) {
+                speedSlider.addEventListener('input', (e) => {
+                    speedVal.textContent = `${e.target.value} BPM`;
+                    if (isPlaying) startGaitSimulation();
+                });
+            }
+
+            // Gait Switcher Buttons
+            ['step', 'klus', 'galop'].forEach(gaitKey => {
+                const btn = document.getElementById(`btn-${gaitKey}`);
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.gait-tab-btn').forEach(b => {
+                            b.classList.remove('bg-eqGold-500', 'text-eqGreen-900', 'shadow-md');
+                            b.classList.add('text-gray-300');
+                        });
+                        btn.classList.add('bg-eqGold-500', 'text-eqGreen-900', 'shadow-md');
+                        btn.classList.remove('text-gray-300');
+
+                        currentGait = gaitKey;
+                        currentStepIndex = 0;
+                        updateGaitUI();
+                        if (isPlaying) startGaitSimulation();
+                    });
+                }
+            });
+
+            /* --- MODULE 3: BALANCE & VECTOR SHIFT --- */
+            const cogDot = document.getElementById('cog-horse-dot');
+            const cogLabel = document.getElementById('cog-horse-label');
+            const riderLine = document.getElementById('rider-alignment-line');
+            const frontWeightText = document.getElementById('front-weight-text');
+            const rearWeightText = document.getElementById('rear-weight-text');
+            const balanceTitle = document.getElementById('balance-title');
+            const balanceDesc = document.getElementById('balance-desc');
+            const balanceBadge = document.getElementById('balance-badge');
+
+            const balanceStates = {
+                natural: {
+                    cogX: 320,
+                    riderX: 380,
+                    frontW: "60% Masy",
+                    rearW: "40% Masy",
+                    badge: "Stan 1 — Naturalny",
+                    title: "Naturalna Równowaga Przednia (60/40)",
+                    desc: "Szyja i głowa konia tworzą naturalną dźwignię, przesuwając środek ciężkości na kończyny przednie. Bez zaangażowania zadu koń nosi jeźdźca głównie na przodzie."
+                },
+                collected: {
+                    cogX: 390,
+                    riderX: 390,
+                    frontW: "45% Masy",
+                    rearW: "55% Masy",
+                    badge: "Stan 2 — Prawidłowy",
+                    title: "Zebranie i Podstawienie Zadu",
+                    desc: "Ugięcie stawów zadu (kolanowego i skokowego) przesuwa środek ciężkości w tył. Przód konia unosi się, a linia ucho-bark-biodro-pięta jeźdźca znajduje się idealnie nad środkiem ciężkości konia."
+                },
+                bad: {
+                    cogX: 280,
+                    riderX: 310,
+                    frontW: "70% Masy",
+                    rearW: "30% Masy",
+                    badge: "Stan 3 — Błąd Dosiadu",
+                    title: "Przeciążenie Przodu (Dosiad Pochylony)",
+                    desc: "Jeździec pochylony do przodu przesuwa własny ciężar przed środek ciężkości konia. Koń 'pada na przód', sztywnieje w pysku i gubi możliwość swobodnego wyciągnięcia przednich nóg."
+                }
+            };
+
+            function applyBalanceState(key) {
+                const data = balanceStates[key];
+                if (cogDot) cogDot.setAttribute('cx', data.cogX);
+                if (cogLabel) {
+                    cogLabel.setAttribute('x', data.cogX);
+                }
+                if (riderLine) {
+                    riderLine.setAttribute('x1', data.riderX);
+                    riderLine.setAttribute('x2', data.riderX);
+                }
+                if (frontWeightText) frontWeightText.textContent = data.frontW;
+                if (rearWeightText) rearWeightText.textContent = data.rearW;
+                if (balanceTitle) balanceTitle.textContent = data.title;
+                if (balanceDesc) balanceDesc.textContent = data.desc;
+                if (balanceBadge) balanceBadge.textContent = data.badge;
+            }
+
+            document.getElementById('balance-btn-natural')?.addEventListener('click', function() {
+                toggleBalanceBtn(this);
+                applyBalanceState('natural');
+            });
+
+            document.getElementById('balance-btn-collected')?.addEventListener('click', function() {
+                toggleBalanceBtn(this);
+                applyBalanceState('collected');
+            });
+
+            document.getElementById('balance-btn-bad')?.addEventListener('click', function() {
+                toggleBalanceBtn(this);
+                applyBalanceState('bad');
+            });
+
+            function toggleBalanceBtn(btn) {
+                document.querySelectorAll('.balance-state-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-eqGreen-900', 'text-white');
+                    b.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                btn.classList.add('active', 'bg-eqGreen-900', 'text-white');
+                btn.classList.remove('bg-gray-100', 'text-gray-700');
+            }
+
+            /* --- MODULE 6: HORSE MOOD & BODY LANGUAGE DECODER --- */
+            const earLeft = document.getElementById('horse-ear-left');
+            const earRight = document.getElementById('horse-ear-right');
+            const eyeWhite = document.getElementById('horse-eye-white');
+            const moodName = document.getElementById('current-mood-name');
+            const moodTitle = document.getElementById('mood-desc-title');
+            const moodBody = document.getElementById('mood-desc-body');
+
+            const moodPresets = {
+                relaxed: {
+                    name: 'Zrelaksowany / Przyjazny',
+                    leftTransform: 'rotate(0deg)',
+                    rightTransform: 'rotate(0deg)',
+                    eyeWhiteOp: '0',
+                    title: 'Objawy Zrelaksowania:',
+                    body: 'Uszy skierowane swobodnie na boki lub lekko w przód. Wzrok miękki, nozdrza rozluźnione. Koń jest gotowy do współpracy i przyjmowania sygnałów.'
+                },
+                alert: {
+                    name: 'Czujny / Ciekawy',
+                    leftTransform: 'rotate(-25deg)',
+                    rightTransform: 'rotate(-25deg)',
+                    eyeWhiteOp: '0',
+                    title: 'Objawy Czujności:',
+                    body: 'Uszy sztywno skierowane w stronę źródła dźwięku lub obiektu. Głowa uniesiona wyżej, nozdrza lekko rozszerzone. Koń skupia uwagę na otoczeniu.'
+                },
+                angry: {
+                    name: 'Zezłoszczony / Agresywny',
+                    leftTransform: 'rotate(80deg)',
+                    rightTransform: 'rotate(80deg)',
+                    eyeWhiteOp: '0',
+                    title: 'Ostrzeżenie o Agresji / Niezadowoleniu:',
+                    body: 'Uszy płasko położone po sobie wzdłuż szyi. Węższy wzrok, spięte nozdrza. Ostrzeżenie przed możliwością ugryzienia lub kopnięcia.'
+                },
+                scared: {
+                    name: 'Przestraszony / Zaniepokojony',
+                    leftTransform: 'rotate(-40deg)',
+                    rightTransform: 'rotate(20deg)',
+                    eyeWhiteOp: '1',
+                    title: 'Sygnał Lęku i Ucieczki:',
+                    body: 'Uszy gwałtownie poruszające się w różnych kierunkach, widoczne białko oka (twardówka), mocno rozszerzone nozdrza. Wysoki poziom kortyzolu, ryzyko gwałtownego odskoczenia.'
+                }
+            };
+
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.mood-btn').forEach(b => {
+                        b.classList.remove('active', 'border-eqGold-500');
+                        b.classList.add('border-gray-700');
+                        b.querySelector('strong').className = "text-white block text-xs";
+                    });
+                    btn.classList.add('active', 'border-eqGold-500');
+                    btn.classList.remove('border-gray-700');
+                    btn.querySelector('strong').className = "text-eqGold-400 block text-xs";
+
+                    const moodKey = btn.getAttribute('data-mood');
+                    const preset = moodPresets[moodKey];
+
+                    if (earLeft) earLeft.style.transform = preset.leftTransform;
+                    if (earRight) earRight.style.transform = preset.rightTransform;
+                    if (eyeWhite) eyeWhite.style.opacity = preset.eyeWhiteOp;
+                    if (moodName) moodName.textContent = preset.name;
+                    if (moodTitle) moodTitle.textContent = preset.title;
+                    if (moodBody) moodBody.textContent = preset.body;
+                });
+            });
+
+            /* --- MODULE 7: VISION FIELD INTERACTIVE RADAR --- */
+            const visionData = {
+                'binocular': {
+                    badge: "Widzenie Dwuoczne (Binokularne)",
+                    badgeColor: "bg-eqGold-500",
+                    title: "Pole Przednie (Ok. 65°)",
+                    desc: "Jedyny obszar, w którym koń ma postrzeganie głębi (3D) i potrafi dokładnie ocenić odległość (np. od przeszkody). Wymaga opuszczenia głowy do poziomu przeszkody."
+                },
+                'monocular-left': {
+                    badge: "Widzenie Jednooczne",
+                    badgeColor: "bg-blue-600",
+                    title: "Pole Boczne Lewe (Ok. 146°)",
+                    desc: "Szerokie panoramiczne widzenie płaskie (2D). Koń dostrzega najmniejszy ruch w trawie, ale nie potrafi precyzyjnie ocenić odległości bez odwrócenia głowy."
+                },
+                'monocular-right': {
+                    badge: "Widzenie Jednooczne",
+                    badgeColor: "bg-blue-600",
+                    title: "Pole Boczne Prawe (Ok. 146°)",
+                    desc: "Prawa strona panoramiczna. Informacje z prawego oka trafiają do lewej półkuli. Dlatego straszak pokazany z prawej strony może wywołać ponowną reakcję mimo wcześniejszego oswojenia z lewej."
+                },
+                'blind-rear': {
+                    badge: "Strefa Ślepa (Krytyczna)",
+                    badgeColor: "bg-red-600",
+                    title: "Obszar Bezpośrednio za Zadkiem",
+                    desc: "Koń nie widzi niczego bezpośrednio za swoim ogonem. Zaskoczenie go w tej strefie wywołuje obronny odruch kopnięcia oburącz."
+                }
+            };
+
+            document.querySelectorAll('[data-vision]').forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const key = item.getAttribute('data-vision');
+                    const info = visionData[key];
+                    if (info) {
+                        const badge = document.getElementById('vision-badge');
+                        const title = document.getElementById('vision-title');
+                        const desc = document.getElementById('vision-desc');
+
+                        if (badge) {
+                            badge.textContent = info.badge;
+                            badge.className = `text-xs font-bold text-white ${info.badgeColor} px-2.5 py-1 rounded-md uppercase`;
+                        }
+                        if (title) title.textContent = info.title;
+                        if (desc) desc.textContent = info.desc;
+                    }
+                });
+            });
+
+            /* --- MODULE 8: KNOWLEDGE ASSESSMENT QUIZ --- */
+            const quizQuestions = [
+                {
+                    question: "Jaka jest czysta sekwencja uderzeń kopyt w symetrycznym 4-taktowym stępie?",
+                    options: [
+                        "Tylna lewa → Przednia lewa → Tylna prawa → Przednia prawa",
+                        "Przednia prawa → Przednia lewa → Tylna prawa → Tylna lewa",
+                        "Obie tylne jednocześnie → Obie przednie",
+                        "Tylna lewa → Przednia prawa → Tylna prawa → Przednia lewa"
+                    ],
+                    correct: 0,
+                    explanation: "Stęp jest chodem symetrycznym 4-taktowym o następującej sekwencji: TL -> PL -> TP -> PP."
+                },
+                {
+                    question: "Na czym polega zasada biomechaniczna 'Łuku i Cięciwy' (Bow and String concept)?",
+                    options: [
+                        "Trzymaniu wodzy z siłą łuku myśliwskiego",
+                        "Napięcie mięśni brzucha (cięciwa) podnosi kręgosłup (łuk), umożliwiając niesienie ciężaru jeźdźca",
+                        "Używaniu bata do usztywnienia szyi konia",
+                        "Rozciąganiu wyłącznie tylnych pęcin"
+                    ],
+                    correct: 1,
+                    explanation: "Mięśnie brzucha pełnią rolę cięciwy. Ich skurcz unosi grzbiet konia i zapobiega jego zapadaniu pod ciężarem jeźdźca."
+                },
+                {
+                    question: "Jaka jest funkcja 'Mechanizmu Zatrzaskowego' (Stay Apparatus) u konia?",
+                    options: [
+                        "Zapobieganie poślizgom na trawie",
+                        "Pozwala koniowi zablokować stawy i odpoczywać na stojąco przy minimalnym zużyciu energii",
+                        "Automatyczne wypinanie strzemion podczas upadku",
+                        "Uniemożliwianie zbyt głębokiego schylania szyi"
+                    ],
+                    correct: 1,
+                    explanation: "Mechanizm zatrzaskowy (m.in. blokada rzepki w stawie kolanowym) pozwala oszczędzać energię mięśni podczas stania."
+                }
+            ];
+
+            let currentQuizIndex = 0;
+            let quizScore = 0;
+
+            const qQuestionTitle = document.getElementById('quiz-question-title');
+            const qOptionsContainer = document.getElementById('quiz-options-container');
+            const qProgressText = document.getElementById('quiz-progress-text');
+            const qScoreTracker = document.getElementById('quiz-score-tracker');
+            const qFeedback = document.getElementById('quiz-feedback');
+            const qNextBtn = document.getElementById('quiz-next-btn');
+
+            function loadQuizQuestion() {
+                const q = quizQuestions[currentQuizIndex];
+                if (qQuestionTitle) qQuestionTitle.textContent = q.question;
+                if (qProgressText) qProgressText.textContent = `Pytanie ${currentQuizIndex + 1} z ${quizQuestions.length}`;
+                if (qScoreTracker) qScoreTracker.textContent = `Wynik: ${quizScore} pkt`;
+
+                if (qFeedback) qFeedback.className = "mt-6 p-4 rounded-xl hidden text-xs sm:text-sm font-semibold";
+                if (qNextBtn) qNextBtn.classList.add('hidden');
+
+                if (qOptionsContainer) {
+                    qOptionsContainer.innerHTML = '';
+                    q.options.forEach((optText, i) => {
+                        const optBtn = document.createElement('button');
+                        optBtn.className = "quiz-opt-btn w-full p-4 rounded-xl bg-eqGreen-900 border border-eqGold-500/20 text-left text-xs sm:text-sm text-gray-200 hover:bg-eqGreen-700 transition flex items-center justify-between";
+                        optBtn.innerHTML = `<span>${i + 1}. ${optText}</span> <i class="fa-regular fa-circle text-gray-500"></i>`;
+                        optBtn.addEventListener('click', () => selectQuizAnswer(i, optBtn));
+                        qOptionsContainer.appendChild(optBtn);
+                    });
+                }
+            }
+
+            function selectQuizAnswer(selectedIndex, btnElement) {
+                const q = quizQuestions[currentQuizIndex];
+                const allOptBtns = qOptionsContainer.querySelectorAll('.quiz-opt-btn');
+                
+                allOptBtns.forEach(b => b.disabled = true);
+
+                if (selectedIndex === q.correct) {
+                    quizScore += 10;
+                    btnElement.classList.remove('bg-eqGreen-900');
+                    btnElement.classList.add('bg-green-700', 'border-green-400', 'text-white');
+                    btnElement.querySelector('i').className = "fa-solid fa-circle-check text-green-300 text-base";
+
+                    if (qFeedback) {
+                        qFeedback.textContent = `Dobrze! ${q.explanation}`;
+                        qFeedback.className = "mt-6 p-4 rounded-xl bg-green-900/80 border border-green-500 text-green-200 text-xs sm:text-sm";
+                    }
+                } else {
+                    btnElement.classList.remove('bg-eqGreen-900');
+                    btnElement.classList.add('bg-red-900/80', 'border-red-500', 'text-white');
+                    btnElement.querySelector('i').className = "fa-solid fa-circle-xmark text-red-300 text-base";
+
+                    if (qFeedback) {
+                        qFeedback.textContent = `Niepoprawnie. ${q.explanation}`;
+                        qFeedback.className = "mt-6 p-4 rounded-xl bg-red-950/80 border border-red-500 text-red-200 text-xs sm:text-sm";
+                    }
+                }
+
+                if (qScoreTracker) qScoreTracker.textContent = `Wynik: ${quizScore} pkt`;
+                if (qNextBtn) qNextBtn.classList.remove('hidden');
+            }
+
+            if (qNextBtn) {
+                qNextBtn.addEventListener('click', () => {
+                    currentQuizIndex++;
+                    if (currentQuizIndex < quizQuestions.length) {
+                        loadQuizQuestion();
+                    } else {
+                        // Finish Quiz
+                        document.getElementById('quiz-question-box')?.classList.add('hidden');
+                        const resultsBox = document.getElementById('quiz-results-box');
+                        if (resultsBox) {
+                            resultsBox.classList.remove('hidden');
+                            document.getElementById('quiz-final-score-text').textContent = `Twój Wynik Końcowy: ${quizScore} / ${quizQuestions.length * 10} punktów`;
+                        }
+                    }
+                });
+            }
+
+            document.getElementById('quiz-restart-btn')?.addEventListener('click', () => {
+                currentQuizIndex = 0;
+                quizScore = 0;
+                document.getElementById('quiz-results-box')?.classList.add('hidden');
+                document.getElementById('quiz-question-box')?.classList.remove('hidden');
+                loadQuizQuestion();
+            });
+
+            // Initialize Quiz
+            loadQuizQuestion();
+
+        });
+    </script>
+</body>
+</html>
